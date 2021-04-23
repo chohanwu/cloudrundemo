@@ -15,6 +15,7 @@ app = Flask(__name__)
 
 # Convert using Libre Office
 def convert_file(output_dir, input_file):
+    print("Convert to PDF")
     call('libreoffice --headless --convert-to pdf --outdir %s %s ' %
          (output_dir, input_file), shell=True)
 
