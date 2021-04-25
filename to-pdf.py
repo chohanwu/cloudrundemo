@@ -16,7 +16,6 @@ app = Flask(__name__)
 
 # Convert using Libre Office
 def convert_file(output_dir, input_file):
-    sys.stdout.write("Convert to PDF")
     call('libreoffice --headless --convert-to pdf --outdir %s %s ' %
          (output_dir, input_file), shell=True)
 
@@ -53,7 +52,10 @@ def api():
         with open(input_file_path, 'wb') as file:
             shutil.copyfileobj(response.raw, file)
         del response
-
+    
+    sys.stdout.write('gfg')
+    print('mamale', file = sys.stdout)
+    
     convert_file(work_dir.name, input_file_path)
 
     @after_this_request
