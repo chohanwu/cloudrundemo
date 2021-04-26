@@ -53,9 +53,7 @@ def api():
             shutil.copyfileobj(response.raw, file)
         del response
     
-    sys.stdout.write('gfg')
-    print('mamale', file = sys.stdout)
-    
+    os.write(1, b'Convert to PDF \n')
     convert_file(work_dir.name, input_file_path)
 
     @after_this_request
